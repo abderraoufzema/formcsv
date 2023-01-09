@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <link rel="preconnect"
+ href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="./style.css">
+ <script defer src="./app.js"></script>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Registration</title>
+</head>
+<body>
+ <div class="container">
+  <form action="https://sheetdb.io/api/v1/qhf32h7d3wlki" method="POST" id="sheetdb-form">
+    <h1>Name:</h1><br><input name="data[name]">
+   <br>
+   <h1>Email:</h1> <input name="data[email]">
+   <button type="submit">Submit</button>
+  </form>
+ </div>
+
+
+ <script>
+  var form = document.querySelector('#sheetdb-form');
+  form.addEventListener('submit', e=>{
+   e.preventDefault();
+   fetch(form.action,{
+      method: 'POST',
+      body: new FormData(document.querySelector('#sheetdb-form')),   
+     }).then(
+      response => response.json()
+     ).then((html)=>{
+      alert('success');
+     })
+  });
+      
+  </script>
+</body>
+</html>
